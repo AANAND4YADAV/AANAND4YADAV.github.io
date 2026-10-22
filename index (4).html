@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✏️ SEO: edit title + description -->
+  <title>Aanand Yadav — builder</title>
+  <meta name="description" content="I build things, ship them, and share what I learn." />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Tailwind via CDN: no build step -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: {
+        mono: ['ui-monospace','SFMono-Regular','Menlo','Consolas','monospace'],
+        sans: ['ui-sans-serif','system-ui','-apple-system','Segoe UI','Roboto','sans-serif'],
+      } } },
+    };
+  </script>
+
+  <style>
+    html, body { background: #000; color: #fff; }
+    body { -webkit-font-smoothing: antialiased; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .fade-in { animation: fadeIn .35s ease-out both; }
+
+    /* Load-in animation: each block rises in, staggered by --d */
+    .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--d, 0) * 130ms + 150ms); }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); filter: blur(4px); } to { opacity: 1; transform: none; filter: blur(0); } }
+    .cursor { animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    #view-home section ul > li { transition: transform .25s ease; }
+    #view-home section ul > li:hover { transform: translateX(4px); }
+    @media (prefers-reduced-motion: reduce) { .rise { animation: none; opacity: 1; } .cursor { animation: none; } }
+
+    /* Blog text styling */
+    .prose-blog p { margin-bottom: 1.25rem; line-height: 1.85; color: #d4d4d4; }
+    .prose-blog h2 { margin: 2rem 0 .75rem; font-size: 1.25rem; font-weight: 600; color: #fff; }
+    .prose-blog strong { color: #fff; font-weight: 600; }
+    .prose-blog code { background: #171717; padding: .15rem .4rem; border-radius: .25rem; font-size: .9em; }
+    .prose-blog pre { background: #0a0a0a; border: 1px solid #262626; border-radius: .5rem; padding: 1rem; overflow-x: auto; margin-bottom: 1.25rem; font-size: .85rem; }
+    .prose-blog pre code { background: transparent; padding: 0; }
+    .prose-blog blockquote { border-left: 2px solid #404040; padding-left: 1rem; margin-bottom: 1.25rem; color: #a3a3a3; font-style: italic; }
+  </style>
+</head>
+
+<body class="font-mono">
+<div class="mx-auto max-w-2xl px-5 sm:px-6 py-12 sm:py-20">
+
+  <!-- ===================== VIEW 1: HOME ===================== -->
+  <main id="view-home" class="fade-in">
+
+    <!-- HEADER -->
+    <header class="mb-12 rise" style="--d:0">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight"><span id="typed">Aanand Yadav</span><span class="cursor ml-1 inline-block w-[3px] h-[0.9em] bg-white align-middle"></span></h1>
+      <p class="mt-2 text-neutral-500">cs student &amp; builder</p>
+      <!-- ✏️ EDIT: your one-line positioning (the sentence people should remember) -->
+      <p class="mt-6 font-sans text-xl sm:text-2xl leading-snug text-neutral-100">
+        I build things, ship them, and share what I learn.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3 text-sm">
+        <a href="#projects" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});return false;"
+           class="rounded-full bg-white px-5 py-2 font-semibold text-black hover:bg-neutral-300 transition">See what I've built ↓</a>
+        <a href="mailto:aanand3yadav@gmail.com"
+           class="rounded-full border border-neutral-600 px-5 py-2 text-white hover:bg-white hover:text-black transition">Email me</a>
+      </div>
+      <!-- ✏️ EDIT: your current status -->
+      <p class="mt-6 inline-flex items-center gap-2 text-xs text-neutral-400">
+        <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span></span>
+        open to startup teams · based in India
+      </p>
+      <nav class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-neutral-400">
+        <a class="underline underline-offset-4 decoration-neutral-600 hover:text-white hover:decoration-white transition" href="https://github.com/AANAND4YADAV" target="_blank" rel="noopener noreferrer">github</a>
+        <a class="underline underline-offset-4 decoration-neutral-600 hover:text-white hover:decoration-white transition" href="https://x.com/aananddd_algoo" target="_blank" rel="noopener noreferrer">x</a>
+        <a class="underline underline-offset-4 decoration-neutral-600 hover:text-white hover:decoration-white transition" href="https://medium.com/@aanandittt" target="_blank" rel="noopener noreferrer">medium</a>
+        <a class="underline underline-offset-4 decoration-neutral-600 hover:text-white hover:decoration-white transition" href="https://www.linkedin.com/in/aanand-yadav-78a4a642a/" target="_blank" rel="noopener noreferrer">linkedin</a>
+        <a class="underline underline-offset-4 decoration-neutral-600 hover:text-white hover:decoration-white transition" href="mailto:aanand3yadav@gmail.com">email</a>
+      </nav>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="mb-12 rise" style="--d:2">
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-4">About</h2>
+      <!-- ✏️ EDIT: your about text -->
+      <div class="font-sans leading-relaxed text-neutral-200 space-y-4">
+        <p>Hey, I'm Aanand. I'm a computer science student in India.</p>
+        <p>I learn by shipping: I pick an idea, build it end to end, and write down what I got wrong along the way. Every project below has its code and a short demo.</p>
+      </div>
+      <!-- ✏️ EDIT: pill badges -->
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">python</span>
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">machine learning</span>
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">mathematics</span>
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">ollama</span>
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">openlit</span>
+        <span class="rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300">aws s3</span>
+      </div>
+    </section>
+
+    <!-- RIGHT NOW: positioning at a glance. ✏️ EDIT each line as things change -->
+    <section class="mb-12 rise" style="--d:3">
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-4">Right now</h2>
+      <dl class="font-sans text-sm sm:text-base space-y-3">
+        <div class="flex gap-4"><dt class="w-24 shrink-0 font-mono text-xs uppercase tracking-wider text-neutral-500 pt-1">building</dt><dd class="text-neutral-200">MADS, ExperimentLens and Codebase Health CLI</dd></div>
+        <div class="flex gap-4"><dt class="w-24 shrink-0 font-mono text-xs uppercase tracking-wider text-neutral-500 pt-1">learning</dt><dd class="text-neutral-200">Machine learning and mathematics, from the fundamentals up</dd></div>
+        <div class="flex gap-4"><dt class="w-24 shrink-0 font-mono text-xs uppercase tracking-wider text-neutral-500 pt-1">looking for</dt><dd class="text-neutral-200">A startup team where I can keep building and learning</dd></div>
+      </dl>
+    </section>
+
+    <!-- PROJECTS: titles are external links (new tab) -->
+    <section id="projects" class="mb-12 rise" style="--d:4">
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-4">Projects</h2>
+      <ul class="space-y-7">
+
+        <li>
+          <!-- ✏️ EDIT: replace the href with the exact MADS repo URL -->
+          <a href="https://github.com/AANAND4YADAV" target="_blank" rel="noopener noreferrer"
+             class="text-lg font-semibold underline underline-offset-4 decoration-neutral-600 hover:decoration-white transition">MADS: from basic to advanced ↗</a>
+          <p class="mt-1 font-sans text-sm text-neutral-400 leading-relaxed">
+            A multi-agent debate system. Four AI experts debate which bin a piece of waste belongs in and a judge picks the bin.
+            Adds live token streaming, per-debate latency measurement, optional OpenTelemetry tracing and S3 storage of every debate.
+            Built solo for Environmental Hacks at Delhi Technological University, my first hackathon.
+          </p>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">python</span>
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">ollama</span>
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">openlit</span>
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">aws s3</span>
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">boto3</span>
+          </div>
+        </li>
+
+        <li>
+          <!-- ✏️ EDIT: replace the href with the exact ExperimentLens repo URL -->
+          <a href="https://github.com/AANAND4YADAV" target="_blank" rel="noopener noreferrer"
+             class="text-lg font-semibold underline underline-offset-4 decoration-neutral-600 hover:decoration-white transition">ExperimentLens ↗</a>
+          <p class="mt-1 font-sans text-sm text-neutral-400 leading-relaxed">
+            A Python engine that takes over routine data-analyst work by profiling CSV datasets automatically.
+          </p>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">python</span>
+          </div>
+        </li>
+
+        <li>
+          <a href="https://github.com/AANAND4YADAV/codebase-health-cli" target="_blank" rel="noopener noreferrer"
+             class="text-lg font-semibold underline underline-offset-4 decoration-neutral-600 hover:decoration-white transition">Codebase Health CLI ↗</a>
+          <p class="mt-1 font-sans text-sm text-neutral-400 leading-relaxed">
+            An experimental command-line tool that analyzes a codebase's health and explores software quality metrics.
+            Split into separate analyzers, a scorer and a reporter.
+          </p>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">python</span>
+            <span class="rounded-full border border-neutral-800 bg-neutral-900 px-2.5 py-0.5 text-[11px] text-neutral-400">cli</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- NOTES LIST: data-post slug must match <article id="post-SLUG"> below -->
+    <section class="mb-16 rise" style="--d:5">
+      <h2 class="text-sm uppercase tracking-widest text-neutral-500 mb-4">Notes to self</h2>
+
+      <ul class="space-y-5">
+        <li>
+          <a href="#/math-from-scratch" data-post="math-from-scratch" class="group block">
+            <span class="text-xs text-neutral-500">2026-10-18</span>
+            <span class="block text-lg font-semibold underline underline-offset-4 decoration-neutral-600 group-hover:decoration-white transition">Rebuilding my math from scratch</span>
+            <span class="block mt-1 font-sans text-sm text-neutral-400">Why I'm going back to the fundamentals, and how.</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/building-mads" data-post="building-mads" class="group block">
+            <span class="text-xs text-neutral-500">2026-10-17</span>
+            <span class="block text-lg font-semibold underline underline-offset-4 decoration-neutral-600 group-hover:decoration-white transition">What I learned building MADS</span>
+            <span class="block mt-1 font-sans text-sm text-neutral-400">From a basic terminal prototype to a streamed, measured, traced system.</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/confusion-matrix" data-post="confusion-matrix" class="group block">
+            <span class="text-xs text-neutral-500">2026-08-27</span>
+            <span class="block text-lg font-semibold underline underline-offset-4 decoration-neutral-600 group-hover:decoration-white transition">Understanding the Confusion Matrix</span>
+            <span class="block mt-1 font-sans text-sm text-neutral-400">True positives, true negatives and the two kinds of wrong, explained through everyday decisions.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CLOSING CTA ✏️ EDIT -->
+    <section class="mb-16 rise" style="--d:6">
+      <p class="font-sans text-lg text-neutral-100">Building something and need someone who ships?</p>
+      <a href="mailto:aanand3yadav@gmail.com" class="mt-2 inline-block underline underline-offset-4 decoration-neutral-600 hover:decoration-white transition">aanand3yadav@gmail.com</a>
+    </section>
+
+    <footer class="rise border-t border-neutral-900 pt-6 text-xs text-neutral-600" style="--d:7">
+      © <span id="year"></span> Aanand Yadav
+    </footer>
+  </main>
+
+  <!-- ===================== VIEW 2: BLOG POSTS (hidden by default) =====================
+       ✏️ TO ADD A POST: add a list item above (href="#/slug", data-post="slug"),
+       then copy an <article> below and set id="post-slug". -->
+  <div id="view-blog" class="hidden">
+
+    <article id="post-building-mads" class="post hidden">
+      <a href="#/" data-home class="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition mb-10">← Back to Home</a>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">What I learned building MADS</h1>
+      <p class="mt-2 mb-8 text-xs text-neutral-500">2026-10-17</p>
+      <!-- ✏️ EDIT: replace this sample text with your real post -->
+      <div class="prose-blog font-sans">
+        <p>MADS started as a basic terminal prototype: AI agents debating, with no streaming. This is placeholder text, so replace it with your own writing.</p>
+        <h2>From prototype to instrumented tool</h2>
+        <p>The advanced version added live token streaming, per-debate latency measurement, optional tracing with <code>OpenLIT</code>, and saving every debate to S3.</p>
+        <blockquote>Use a blockquote for a key takeaway.</blockquote>
+        <pre><code>for token in stream(prompt):
+    print(token, end="", flush=True)</code></pre>
+        <p>Closing thought goes here.</p>
+      </div>
+      <a href="#/" data-home class="mt-8 inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition">← Back to Home</a>
+    </article>
+
+    <article id="post-math-from-scratch" class="post hidden">
+      <a href="#/" data-home class="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition mb-10">← Back to Home</a>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">Rebuilding my math from scratch</h1>
+      <p class="mt-2 mb-8 text-xs text-neutral-500">2026-10-18</p>
+      <!-- ✏️ EDIT: replace this sample text with your real post -->
+      <div class="prose-blog font-sans">
+        <p>This is the second sample post, so you can see the view switch between articles with no reload. Replace it with your own writing.</p>
+        <h2>Another heading</h2>
+        <p>Add as many paragraphs, headings and code blocks as you like.</p>
+        <pre><code>w = w - lr * grad</code></pre>
+        <p>Closing paragraph goes here.</p>
+      </div>
+      <a href="#/" data-home class="mt-8 inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition">← Back to Home</a>
+    </article>
+
+    <article id="post-confusion-matrix" class="post hidden">
+      <a href="#/" data-home class="inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition mb-10">← Back to Home</a>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug">Understanding the Confusion Matrix</h1>
+      <p class="mt-2 mb-8 text-xs text-neutral-500">2026-08-27</p>
+      <div class="prose-blog font-sans">
+        <p>Most of us get confused in complex situations about whether we should choose A or B, especially when many different factors are interconnected. Things get fuzzy.</p>
+        <p>This is where the <strong>confusion matrix</strong> comes into the picture.</p>
+        <p>Suppose we predict that <strong>choosing A is a good decision</strong>, and it actually is a good decision. Hence, it is a <strong>True Positive</strong>.</p>
+        <p>Now, suppose we predict that <strong>choosing B is not a good decision</strong>, and it actually is not a good decision. Hence, it is a <strong>True Negative</strong>.</p>
+        <p>But what if we predict that <strong>choosing A is a good decision</strong>, while it is actually a poor decision? That is a <strong>False Positive</strong>.</p>
+        <p>And if we predict that <strong>choosing A is a poor decision</strong>, but it is actually an excellent decision, that is a <strong>False Negative</strong>.</p>
+        <p>So, these four outcomes — <strong>True Positive, True Negative, False Positive, and False Negative</strong> — form the basic structure of a confusion matrix.</p>
+        <p>In the next blog, we’ll use these four values to understand important metrics like <strong>precision and recall</strong>.</p>
+      </div>
+      <a href="#/" data-home class="mt-8 inline-flex items-center gap-2 rounded-full border border-neutral-600 px-4 py-2 text-sm text-white hover:bg-white hover:text-black transition">← Back to Home</a>
+    </article>
+
+  </div>
+</div>
+
+<!-- ===================== VANILLA JS HASH ROUTER =====================
+     Home = no hash or "#/". Post = "#/<slug>" → shows <article id="post-<slug>">.
+     Links only change location.hash; 'hashchange' swaps views. No reload. -->
+<script>
+(function () {
+  var home = document.getElementById('view-home');
+  var blog = document.getElementById('view-blog');
+  var posts = document.querySelectorAll('.post');
+  var baseTitle = 'Aanand Yadav — builder';
+  var current = null;
+
+  function animate(el) {
+    el.classList.remove('fade-in'); void el.offsetWidth; el.classList.add('fade-in');
+  }
+  function hideAllPosts() { posts.forEach(function (p) { p.classList.add('hidden'); }); }
+  function slugFromHash() { return window.location.hash.replace(/^#\/?/, ''); }
+
+  // Swap the visible view. slug "" = home, otherwise a post slug.
+  function render(slug) {
+    if (slug === current) return;           // already showing it
+    var target = slug ? document.getElementById('post-' + slug) : null;
+    if (slug && !target) slug = '';          // unknown slug -> home
+    current = slug;
+    hideAllPosts();
+    if (target) {
+      home.classList.add('hidden');
+      blog.classList.remove('hidden');
+      target.classList.remove('hidden');
+      animate(target);
+      var h1 = target.querySelector('h1');
+      document.title = (h1 ? h1.textContent.trim() : 'Post') + ' — Aanand Yadav';
+    } else {
+      blog.classList.add('hidden');
+      home.classList.remove('hidden');
+      animate(home);
+      document.title = baseTitle;
+    }
+    window.scrollTo(0, 0);
+  }
+
+  // Clicks on any internal link (#/slug) switch the view directly: no reload,
+  // no external redirect. The hash is also updated so back/forward and
+  // shareable links work; if the browser blocks that, the view still switches.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#/"]') : null;
+    if (!a) return;
+    e.preventDefault();
+    var slug = a.getAttribute('href').replace(/^#\/?/, '');
+    render(slug);
+    try { window.location.hash = '/' + slug; } catch (err) {}
+  });
+
+  // Browser back/forward buttons
+  window.addEventListener('hashchange', function () { render(slugFromHash()); });
+
+  // Typewriter effect for the name on first load
+  function typeName() {
+    var el = document.getElementById('typed');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var full = el.textContent, i = 0;
+    el.textContent = '';
+    (function tick() { el.textContent = full.slice(0, ++i); if (i < full.length) setTimeout(tick, 80); })();
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('year').textContent = new Date().getFullYear();
+    render(slugFromHash());   // direct visits to e.g. site.com/#/building-mads
+    typeName();
+  });
+})();
+</script>
+</body>
+</html>
